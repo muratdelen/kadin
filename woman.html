@@ -58,8 +58,7 @@
     <div class="container">
         <nav class="navbar navbar-inverse" role="navigation">
             <div class="navbar-header">
-                <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse"
-                        data-target="#main-nav">
+                <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -90,24 +89,9 @@
     <div class="container">
         <div class="text-content">
             <h2><em>BTO312</em> <span>Çoklu Ortam Tasarımı ve Öğretimi</span> Dersi</h2>
-            <p>Kadına yönelik şiddet her şeyden önce bir temel insan hakları problemidir. İnsan Hakları Evrensel
-                Bildirgesi, "İnsanlık ailesinin bütün üyelerinin doğal yapısındaki onuru ile eşit ve devredilemez
-                haklarını tanımanın dünyada özgürlük, adalet ve barışın temeli olduğunu " belirtir. Ayrıca 5. maddede,
-                "Hiç kimseye işkence ya da zalimce, insanlık dışı ya da aşağılayıcı muamele ya da ceza uygulanamaz."
-                ifadesiyle her türlü şiddet insanlık suçu olarak belirlenmiştir.</p>
+            <p>Kadına yönelik şiddet her şeyden önce bir temel insan hakları problemidir. İnsan Hakları Evrensel Bildirgesi, "İnsanlık ailesinin bütün üyelerinin doğal yapısındaki onuru ile eşit ve devredilemez haklarını tanımanın dünyada özgürlük, adalet ve barışın temeli olduğunu " belirtir. Ayrıca 5. maddede, "Hiç kimseye işkence ya da zalimce, insanlık dışı ya da aşağılayıcı muamele ya da ceza uygulanamaz." ifadesiyle her türlü şiddet insanlık suçu olarak belirlenmiştir.</p>
             <div class="primary-blue-button">
                 <a href="#" class="scroll-link" data-id="about">Kadına Yönelik Şiddete Hayır</a>
-            </div>
-        </div>
-        <div class="row">
-            <div id="demand">
-                <div class="primary-blue-button">
-                    <a href="woman.html" class="btn-block btn-danger">18 Yaşından Büyüğüm (+18)</a>
-                </div>
-                <hr>
-                <div class="primary-blue-button">
-                    <a id="younger" href="#" class="btn-block btn-success">18 Yaşından Küçüğüm</a>
-                </div>
             </div>
         </div>
     </div>
@@ -121,14 +105,15 @@
     #WorldChartDiv {
         max-width: 100%;
         height: 80vh;
-        background-color: #fbebdb;
+        background-color:#fbebdb;
     }
 </style>
 
 
+
 <!-- Chart code -->
 <script>
-    am4core.ready(function () {
+    am4core.ready(function() {
 
 // Themes begin
         am4core.useTheme(am4themes_animated);
@@ -140,7 +125,8 @@
 
         try {
             chart.geodata = am4geodata_worldLow;
-        } catch (e) {
+        }
+        catch (e) {
             chart.raiseCriticalError(new Error("Map geodata could not be loaded. Please download the latest <a href=\"https://www.amcharts.com/download/download-v4/\">amcharts geodata</a> and extract its contents into the same directory as your amCharts files."));
         }
 
@@ -152,12 +138,12 @@
         label.valign = "bottom"
         label.fill = am4core.color("#927459");
         label.background = new am4core.RoundedRectangle()
-        label.background.cornerRadius(10, 10, 10, 10);
-        label.padding(10, 10, 10, 10);
+        label.background.cornerRadius(10,10,10,10);
+        label.padding(10,10,10,10);
         label.marginLeft = 30;
         label.marginBottom = 30;
         label.background.strokeOpacity = 0.3;
-        label.background.stroke = am4core.color("#927459");
+        label.background.stroke =am4core.color("#927459");
         label.background.fill = am4core.color("#f9e3ce");
         label.background.fillOpacity = 0.6;
 
@@ -169,20 +155,20 @@
         dataSource.url = "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/intimate-partner-violence-prevalence-among-ever-partnered-women-(-)"
         dataSource.urlTarget = "_blank";
         dataSource.fill = am4core.color("#927459");
-        dataSource.padding(10, 10, 10, 10);
+        dataSource.padding(10,10,10,10);
         dataSource.marginLeft = 30;
         dataSource.marginTop = 30;
 
 // Set projection
         chart.projection = new am4maps.projections.Orthographic();
         chart.panBehavior = "rotateLongLat";
-        chart.padding(20, 20, 20, 20);
+        chart.padding(20,20,20,20);
 
 // Add zoom control
         chart.zoomControl = new am4maps.ZoomControl();
 
         var homeButton = new am4core.Button();
-        homeButton.events.on("hit", function () {
+        homeButton.events.on("hit", function(){
             chart.goHome();
         });
 
@@ -200,7 +186,7 @@
         chart.deltaLatitude = -20;
 
 // limits vertical rotation
-        chart.adapter.add("deltaLatitude", function (delatLatitude) {
+        chart.adapter.add("deltaLatitude", function(delatLatitude){
             return am4core.math.fitToRange(delatLatitude, -90, 90);
         })
 
@@ -211,7 +197,8 @@
 
         try {
             shadowPolygonSeries.geodata = am4geodata_continentsLow;
-        } catch (e) {
+        }
+        catch (e) {
             shadowPolygonSeries.raiseCriticalError(new Error("Map geodata could not be loaded. Please download the latest <a href=\"https://www.amcharts.com/download/download-v4/\">amcharts geodata</a> and extract its contents into the same directory as your amCharts files."));
         }
 
@@ -280,6 +267,7 @@
         measelTemplate.tooltipPosition = "fixed";
 
 
+
         var hs2 = measelsSeries.mapPolygons.template.states.create("hover");
         hs2.properties.fillOpacity = 1;
         hs2.properties.fill = am4core.color("#86240c");
@@ -299,7 +287,8 @@
                     polygon.events.on("out", function () {
                         mapPolygon.isHover = false;
                     })
-                } else {
+                }
+                else {
                     mapPolygon.tooltipText = mapPolygon.dataItem.dataContext.name + ": no data";
                     mapPolygon.fillOpacity = 0.9;
                 }
@@ -437,7 +426,7 @@
 
 <!-- Chart code -->
 <script>
-    am4core.ready(function () {
+    am4core.ready(function() {
 
 // Themes begin
         am4core.useTheme(am4themes_animated);
@@ -497,7 +486,7 @@
 <div id="chartKent" class="chart"></div>
 <!-- Chart code -->
 <script>
-    am4core.ready(function () {
+    am4core.ready(function() {
 // Themes begin
         am4core.useTheme(am4themes_animated);
 // Themes end
@@ -564,7 +553,7 @@
             return chartData;
         }
 
-        pieSeries.slices.template.events.on("hit", function (event) {
+        pieSeries.slices.template.events.on("hit", function(event) {
             if (event.target.dataItem.dataContext.id != undefined) {
                 selected = event.target.dataItem.dataContext.id;
             } else {
@@ -580,7 +569,7 @@
 <div id="chart1" class="chart"></div>
 <!-- Chart code -->
 <script>
-    am4core.ready(function () {
+    am4core.ready(function() {
 
 // Themes begin
         am4core.useTheme(am4themes_animated);
@@ -679,6 +668,8 @@
         series4.hiddenState.properties.endAngle = -90;
 
 
+
+
         chart.legend = new am4charts.Legend();
 
     }); // end am4core.ready()
@@ -689,7 +680,7 @@
 
 <!-- Chart code -->
 <script>
-    am4core.ready(function () {
+    am4core.ready(function() {
 
 // Themes begin
         am4core.useTheme(am4themes_animated);
@@ -707,30 +698,27 @@
         chart.data = [{
             "country": "Lithuania",
             "litres": 500,
-            "subData": [{name: "A", value: 200}, {name: "B", value: 150}, {name: "C", value: 100}, {
-                name: "D",
-                value: 50
-            }]
+            "subData": [{ name: "A", value: 200 }, { name: "B", value: 150 }, { name: "C", value: 100 }, { name: "D", value: 50 }]
         }, {
             "country": "Czech Republic",
             "litres": 300,
-            "subData": [{name: "A", value: 150}, {name: "B", value: 100}, {name: "C", value: 50}]
+            "subData": [{ name: "A", value: 150 }, { name: "B", value: 100 }, { name: "C", value: 50 }]
         }, {
             "country": "Ireland",
             "litres": 200,
-            "subData": [{name: "A", value: 110}, {name: "B", value: 60}, {name: "C", value: 30}]
+            "subData": [{ name: "A", value: 110 }, { name: "B", value: 60 }, { name: "C", value: 30 }]
         }, {
             "country": "Germany",
             "litres": 150,
-            "subData": [{name: "A", value: 80}, {name: "B", value: 40}, {name: "C", value: 30}]
+            "subData": [{ name: "A", value: 80 }, { name: "B", value: 40 }, { name: "C", value: 30 }]
         }, {
             "country": "Australia",
             "litres": 140,
-            "subData": [{name: "A", value: 90}, {name: "B", value: 40}, {name: "C", value: 10}]
+            "subData": [{ name: "A", value: 90 }, { name: "B", value: 40 }, { name: "C", value: 10 }]
         }, {
             "country": "Austria",
             "litres": 120,
-            "subData": [{name: "A", value: 60}, {name: "B", value: 30}, {name: "C", value: 30}]
+            "subData": [{ name: "A", value: 60 }, { name: "B", value: 30 }, { name: "C", value: 30 }]
         }];
 
 // Add and configure Series
@@ -740,7 +728,7 @@
         pieSeries.slices.template.states.getKey("active").properties.shiftRadius = 0;
 //pieSeries.labels.template.text = "{category}\n{value.percent.formatNumber('#.#')}%";
 
-        pieSeries.slices.template.events.on("hit", function (event) {
+        pieSeries.slices.template.events.on("hit", function(event) {
             selectSlice(event.target.dataItem);
         })
 
@@ -794,10 +782,7 @@
 
             var middleAngle = selectedSlice.middleAngle;
             var firstAngle = pieSeries.slices.getIndex(0).startAngle;
-            var animation = pieSeries.animate([{
-                property: "startAngle",
-                to: firstAngle - middleAngle
-            }, {property: "endAngle", to: firstAngle - middleAngle + 360}], 600, am4core.ease.sinOut);
+            var animation = pieSeries.animate([{ property: "startAngle", to: firstAngle - middleAngle }, { property: "endAngle", to: firstAngle - middleAngle + 360 }], 600, am4core.ease.sinOut);
             animation.events.on("animationprogress", updateLines);
 
             selectedSlice.events.on("transformed", updateLines);
@@ -809,20 +794,14 @@
 
         function updateLines() {
             if (selectedSlice) {
-                var p11 = {
-                    x: selectedSlice.radius * am4core.math.cos(selectedSlice.startAngle),
-                    y: selectedSlice.radius * am4core.math.sin(selectedSlice.startAngle)
-                };
-                var p12 = {
-                    x: selectedSlice.radius * am4core.math.cos(selectedSlice.startAngle + selectedSlice.arc),
-                    y: selectedSlice.radius * am4core.math.sin(selectedSlice.startAngle + selectedSlice.arc)
-                };
+                var p11 = { x: selectedSlice.radius * am4core.math.cos(selectedSlice.startAngle), y: selectedSlice.radius * am4core.math.sin(selectedSlice.startAngle) };
+                var p12 = { x: selectedSlice.radius * am4core.math.cos(selectedSlice.startAngle + selectedSlice.arc), y: selectedSlice.radius * am4core.math.sin(selectedSlice.startAngle + selectedSlice.arc) };
 
                 p11 = am4core.utils.spritePointToSvg(p11, selectedSlice);
                 p12 = am4core.utils.spritePointToSvg(p12, selectedSlice);
 
-                var p21 = {x: 0, y: -pieSeries2.pixelRadius};
-                var p22 = {x: 0, y: pieSeries2.pixelRadius};
+                var p21 = { x: 0, y: -pieSeries2.pixelRadius };
+                var p22 = { x: 0, y: pieSeries2.pixelRadius };
 
                 p21 = am4core.utils.spritePointToSvg(p21, pieSeries2);
                 p22 = am4core.utils.spritePointToSvg(p22, pieSeries2);
@@ -839,8 +818,8 @@
             }
         }
 
-        chart.events.on("datavalidated", function () {
-            setTimeout(function () {
+        chart.events.on("datavalidated", function() {
+            setTimeout(function() {
                 selectSlice(pieSeries.dataItems.getIndex(0));
             }, 1000);
         });
@@ -848,6 +827,7 @@
 
     }); // end am4core.ready()
 </script>
+
 
 
 <section id="about" class="page-section">
@@ -880,48 +860,42 @@
                                 <div class="col-md-6 col-sm-6 project-item mix nature">
                                     <div class="thumb">
                                         <div class="image">
-                                            <a href="img/portfolio_big_item_01.jpg" data-lightbox="image-1"><img
-                                                    src="img/portfolio_item_01.jpg"></a>
+                                            <a href="img/portfolio_big_item_01.jpg" data-lightbox="image-1"><img src="img/portfolio_item_01.jpg"></a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6 project-item mix animation">
                                     <div class="thumb">
                                         <div class="image">
-                                            <a href="img/portfolio_big_item_02.jpg" data-lightbox="image-1"><img
-                                                    src="img/portfolio_item_02.jpg"></a>
+                                            <a href="img/portfolio_big_item_02.jpg" data-lightbox="image-1"><img src="img/portfolio_item_02.jpg"></a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6 project-item mix branding">
                                     <div class="thumb">
                                         <div class="image">
-                                            <a href="img/portfolio_big_item_03.jpg" data-lightbox="image-1"><img
-                                                    src="img/portfolio_item_03.jpg"></a>
+                                            <a href="img/portfolio_big_item_03.jpg" data-lightbox="image-1"><img src="img/portfolio_item_03.jpg"></a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6 project-item mix graphic nature">
                                     <div class="thumb">
                                         <div class="image">
-                                            <a href="img/portfolio_big_item_04.jpg" data-lightbox="image-1"><img
-                                                    src="img/portfolio_item_04.jpg"></a>
+                                            <a href="img/portfolio_big_item_04.jpg" data-lightbox="image-1"><img src="img/portfolio_item_04.jpg"></a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6 project-item mix branding">
                                     <div class="thumb">
                                         <div class="image">
-                                            <a href="img/portfolio_big_item_05.jpg" data-lightbox="image-1"><img
-                                                    src="img/portfolio_item_05.jpg"></a>
+                                            <a href="img/portfolio_big_item_05.jpg" data-lightbox="image-1"><img src="img/portfolio_item_05.jpg"></a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6 project-item mix graphic animation">
                                     <div class="thumb">
                                         <div class="image">
-                                            <a href="img/portfolio_big_item_06.jpg" data-lightbox="image-1"><img
-                                                    src="img/portfolio_item_06.jpg"></a>
+                                            <a href="img/portfolio_big_item_06.jpg" data-lightbox="image-1"><img src="img/portfolio_item_06.jpg"></a>
                                         </div>
                                     </div>
                                 </div>
@@ -1070,20 +1044,17 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <fieldset>
-                                    <input name="name" type="text" class="form-control" id="name"
-                                           placeholder="Your name..." required="">
+                                    <input name="name" type="text" class="form-control" id="name" placeholder="Your name..." required="">
                                 </fieldset>
                             </div>
                             <div class="col-md-12">
                                 <fieldset>
-                                    <input name="email" type="email" class="form-control" id="email"
-                                           placeholder="Your email..." required="">
+                                    <input name="email" type="email" class="form-control" id="email" placeholder="Your email..." required="">
                                 </fieldset>
                             </div>
                             <div class="col-md-12">
                                 <fieldset>
-                                    <textarea name="message" rows="6" class="form-control" id="message"
-                                              placeholder="Your message..." required=""></textarea>
+                                    <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your message..." required=""></textarea>
                                 </fieldset>
                             </div>
                             <div class="col-md-12">
@@ -1133,17 +1104,17 @@
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript">
-    $(document).ready(function () {
-        // navigation click actions 
-        $('.scroll-link').on('click', function (event) {
+    $(document).ready(function() {
+        // navigation click actions
+        $('.scroll-link').on('click', function(event){
             event.preventDefault();
             var sectionID = $(this).attr("data-id");
             scrollToID('#' + sectionID, 750);
         });
         // scroll to top action
-        $('.scroll-top').on('click', function (event) {
+        $('.scroll-top').on('click', function(event) {
             event.preventDefault();
-            $('html, body').animate({scrollTop: 0}, 'slow');
+            $('html, body').animate({scrollTop:0}, 'slow');
         });
         // mobile nav toggle
         $('#nav-toggle').on('click', function (event) {
@@ -1151,23 +1122,20 @@
             $('#main-nav').toggleClass("open");
         });
     });
-
     // scroll function
-    function scrollToID(id, speed) {
+    function scrollToID(id, speed){
         var offSet = 50;
         var targetOffset = $(id).offset().top - offSet;
         var mainNav = $('#main-nav');
-        $('html,body').animate({scrollTop: targetOffset}, speed);
+        $('html,body').animate({scrollTop:targetOffset}, speed);
         if (mainNav.hasClass("open")) {
             mainNav.css("height", "1px").removeClass("in").addClass("collapse");
             mainNav.removeClass("open");
         }
     }
-
     if (typeof console === "undefined") {
         console = {
-            log: function () {
-            }
+            log: function() { }
         };
     }
 </script>
